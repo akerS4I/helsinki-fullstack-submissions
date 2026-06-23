@@ -20,11 +20,23 @@ const App = () => {
     console.log(rndm);
   };
 
+  const [voted, setVoted] = useState(new Array(anecdotes.length).fill(0));
+
+  const voteHandler = () => {
+    const copy = [...voted];
+    copy[selected] += 1;
+    console.log(copy);
+    setVoted(copy);
+  };
+
   return (
     <>
       <h1>{anecdotes[selected]}</h1>
       <br />
+      <h2>this anecdotes has {voted[selected]} votes</h2>
+      <br />
       <button onClick={nextAnecdote}>next anectode</button>
+      <button onClick={voteHandler}>vote</button>
     </>
   );
 };
