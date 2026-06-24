@@ -1,7 +1,7 @@
-const Total = (props) => {
-  let count = 0;
-  props.parts.forEach((p) => (count += p.exercises));
-  return <b>This course has: {count} exercises</b>;
+const Total = ({ parts }) => {
+  const total = parts.reduce((s, p) => s + p.exercises, 0)
+  console.log('reduce method result:', total);
+  return <b>This course has: {total} exercises</b>;
 };
 
 export default Total;
